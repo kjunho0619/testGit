@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+
+</style>
+<script src="/JSproj/js/jquery-3.4.1.min.js"></script>
+<script>
+	/* html페이지를 로딩 후 실행되는 jquery소스
+		1.$(document).ready(function() {});
+		2.$(function() {});
+		3.window.onload = function(){};
+		3가지 모두 같은 동작
+	*/
+	$(function(){
+		printHtml();
+	});
+	
+	/* <pre>태그에 div#desc의 html소스를 붙여넣는 메소드 */
+	function printHtml() {
+		var elementNode = $('div#desc').html();
+		$('pre').text(elementNode);
+	}
+	
+	/* append 메소드 */
+	function appendFunc() {
+		$('div#here').append('<h1>append 추가</h1>');
+		printHtml();
+	}
+	
+	/* prepend 메소드 */
+	function prependFunc() {
+		$('div#here').prepend('<h1>prepend 추가</h1>');
+		printHtml();
+	}
+	
+	/* after 메소드*/
+	function afterFunc() {
+		$('div#here').after('<h1>after 추가</h1>');
+		printHtml();
+	}
+	
+	/* before 메소드*/
+	function beforeFunc() {
+		$('div#here').before('<h1>before 추가</h1>');
+		printHtml();
+	}
+	
+	/* after 메소드*/
+	function emptyFunc() {
+		$('div#here').empty();
+		printHtml();
+	}
+	
+	/* before 메소드*/
+	function removeFunc() {
+		$('div#here').remove();
+		printHtml();
+	}
+</script>
+<body>
+	<div id="desc">
+		<div id="here">
+			<input type="text" value="text1"><br>
+			<input type="text" value="text2"><br>
+			<input type="text" value="text3"><br>
+			<h1>가</h1>
+			<h2>나</h2>
+			<h3>다</h3>
+		</div>
+	</div>
+	<!-- 추가 -->
+	<input type="button" value="$('div#here').append('<h1>append 추가</h1>')"
+			  onclick="appendFunc()"><br>
+	<input type="button" value="$('div#here').prepend('<h1>prepend 추가</h1>')"
+			  onclick="prependFunc()"><br>
+	<input type="button" value="$('div#here').after('<h1>after 추가</h1>')"
+			  onclick="afterFunc()"><br>
+	<input type="button" value="$('div#here').before('<h1>before 추가</h1>')"
+			  onclick="beforeFunc()"><br>
+	<!-- 삭제 -->
+	<input type="button" value="$('div#here').empty()"
+			  onclick="emptyFunc()"><br>
+	<input type="button" value="$('div#here').remove()"
+			  onclick="removeFunc()"><br>
+	
+	<hr>
+	<pre></pre>
+	
+</body>
+</html>
